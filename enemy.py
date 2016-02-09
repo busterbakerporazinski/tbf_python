@@ -6,7 +6,7 @@
 
 class enemy(object):
 	
-	def _init_(self, punchd, kickd, grapd, puncho, kicko, grapo, hp, speed, name, appid): 
+	def __init__(self, punchd, kickd, grapd, puncho, kicko, grapo, hp, speed, name, appid): 
 
 		self.punchd = punchd
 		self.kickd = kickd
