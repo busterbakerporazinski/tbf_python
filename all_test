@@ -1,0 +1,72 @@
+from Enemy_class import *
+import random
+
+def who(turn, p1, p2):
+    """randomly choose an attacker and defender"""
+    if turn == 0:
+        attacker = p1
+        defender = p2
+    else:
+        attacker = p2
+        defender = p1
+    return attacker, defender
+
+def fight(attacker, defender):
+    result = 0
+    while winner == 0:
+
+        att_type, att_dmg = attacker.getAtt()
+        def_type, att_dmg = defender.getDef()
+        if att_type == "hammer" and def_type == "sword":
+            winner = 1
+        elif att_type == "sword" and def_type == "shield":
+            winner = 1
+        elif att_type == "shield" and def_type == "hammer":
+            winner = 1
+        else:
+            winner = 0
+        
+    if winner == 1:
+        defender.setHp(abs(defender.getHp - att_dmg))
+
+def main():
+    p1 = Enemy(10, 10, 10, 10, 10, 10, 100, 1, 'Eric', 1)
+    p2 = Enemy(10, 10, 10, 10, 10, 10, 100, 1, 'Kelso', 1) 
+    print(p1.getName(), 'vs', p2.getName())
+    a = 0
+    b = 0
+    c = 0
+    turn = random.randint(0, 1)
+    attacker, defender = who(turn, p1, p2)
+    print(attacker.getName(), 'go first')
+    
+    while p1.getHp() > 0 and p2.getHp() >0:
+        """take turn to att/def until one of the player's hp below 0"""
+        fight(attacker, defender)
+        temp = attacker
+        attacker = defender
+        defender = temp       
+        
+
+    """Decide who win"""
+    if p1.getHp() > p2.getHp():
+        print(p1.getName(), 'WON with', p1.getHp(), 'HP left')
+    elif p1.getHp() < p2.getHp():
+        print(p2.getName(), 'WON with', p2.getHp(), 'left')
+    else:
+        print('TIED')
+
+    """
+    for i in range(50):
+        num = enemy1.getOffends()
+        if num == 40:
+            a += 1
+        elif num == 50:
+            b += 1
+        else:
+            c += 1
+    print(a, b, c)
+        """
+        
+
+main()
