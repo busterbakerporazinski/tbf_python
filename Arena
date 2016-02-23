@@ -1,0 +1,26 @@
+"""Arena: hosts all the fights"""
+
+from Enemy_class import *
+
+class Areana(object):
+    def __init__(player_1, player_2):
+        self.p1 = player_1
+        self.p2 = player_2
+        self.result = [] #not available, need to be pre-created or make some
+                            # creating method in this class
+                            # should content p1, p2 names in the first cell
+
+    def fight(self):
+        while self.result == 0:
+            att_type, att_dmg = self.p1.getAtt()
+            def_type, def_dmg = self.p2.getDef()
+            if att_type == def_type:
+                self.result.append('TIE')
+            elif att_type == "hammer" and def_type == "sword":
+                self.result.append(self.p1)
+            elif att_type == "sword" and def_type == "shield":
+                self.result.append(self.p1)
+    print('this is arena')
+
+
+arena()
