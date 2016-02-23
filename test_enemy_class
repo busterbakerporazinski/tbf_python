@@ -1,0 +1,40 @@
+from Enemy_class import *
+
+def main():
+    p1 = Enemy(3, 3, 3, 3, 3, 3, 100, 1, 'Quan', 1)
+    p2 = Enemy(3, 3, 3, 3, 3, 3, 100, 1, 'Tung', 1)
+    p1_won, p2_won = 0, 0
+    count =0
+    
+    while p1.getHp() > 0 and p2.getHp()>0:
+        def_type, damage1 = p1.getDef()
+        print(def_type, damage1)
+        att_type, damage2 = p2.getAtt()
+        print(att_type, damage2)
+        if att_type == "hammer" and def_type == "sword":
+            print(p2.getName(), 'won')
+            p2_won+=1
+            p1.setHp(p1.getHp() - damage2)
+        elif att_type == "sword" and def_type == "shield":
+            print(p2.getName(), 'won')
+            p2_won+=1
+            p1.setHp(abs(p1.getHp() - damage2))
+        elif att_type == "shield" and def_type == "hammer":
+            print(p2.getName(), 'won')
+            p2_won+=1
+            p1.setHp(p1.getHp() - damage2)
+        elif att_type == def_type:
+            print('TIED')
+        else:
+            print(p1.getName(), 'won')
+            p1_won+=1
+            p2.setHp(p2.getHp() - damage1)
+        count += 1
+    print('eric:', p1_won, "\nkelso:", p2_won)
+    if p1_won > p2_won:
+        print(p1.getName(), 'won with', p1.getHp(), 'hp left')
+    elif p2_won > p1_won:
+        print(p2.getName(), 'won with', p2.getHp(), 'hp left')
+    else:
+        print('tie')
+main()
