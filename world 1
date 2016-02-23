@@ -1,0 +1,17 @@
+"""World 1"""
+from Enemy_class import *
+import random
+
+def world():
+    print('Welcome to world 1: ')
+    x = random.randint(1, 2)
+    y = random.randint(2, 3)
+    bot1 = Enemy(x, x, x, y, y, y, 20, 1, "Grimeflayer", 1)
+    bot2 = Enemy(x, x, x, y, y, y, 20, 1, "Spiritman", 1)
+    bot3 = Enemy(x, x, x, y, y, y, 20, 1, "Tangleling", 1)
+    bot2 = Enemy(x, x, x, y, y, y, 20, 1, "Thornmorph", 1)
+
+    boss = Enemy(5, 5, 5, 6, 6, 6, 40, 1, "Flamemutant", 1)
+
+world()
+    
