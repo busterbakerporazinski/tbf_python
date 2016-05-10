@@ -4,6 +4,8 @@
 
 #Jay Chawla
 
+#Function that stores amount, returns that amount, & prints it
+
 class Money(object):
 
     def __init__(self, amount):
