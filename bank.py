@@ -1,6 +1,7 @@
 #! /usr/bin/env python 3
 # Jay Chawla 
 # 041816 Bank Module
+#Reads input from the user ("W" for withdraw, "D" for deposit), stores amount. Connects to currency system. Will not allow user to withdraw more than they have
 
 def bankingProcessing (self, wallet):
     self.wallet = wallet
