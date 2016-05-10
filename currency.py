@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # Jay Chawla 
 # 032416 CURRENCY
+#Creates wallet; stored object. Storage that can hold an amount and remembers the last amount
 
 class Currency(object):
 
